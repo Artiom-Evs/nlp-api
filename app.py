@@ -5,7 +5,8 @@ from services.lemmatizer import lemmatize_text
 
 app = FastAPI(debug=True)
 
+
 @app.post("/api/lemmatize", response_model=TextLemmatizationResponse)
-async def summarize(request: LemmatizeTextRequest):
+async def lemmatize(request: LemmatizeTextRequest):
     result = lemmatize_text(request.text)
     return TextLemmatizationResponse(result=result)
