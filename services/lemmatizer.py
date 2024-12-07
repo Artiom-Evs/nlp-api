@@ -2,6 +2,7 @@
 
 import spacy
 from langdetect import detect
+from services.update_lemmas import add_custom_lemmatizers
 
 nlp_models = {
     "en": spacy.load("en_core_web_sm"),
@@ -9,6 +10,8 @@ nlp_models = {
     "pl": spacy.load("pl_core_news_sm"),
     "uk": spacy.load("uk_core_news_sm"),
 }
+
+add_custom_lemmatizers(nlp_models)
 
 
 def lemmatize_text(text: str) -> list:
